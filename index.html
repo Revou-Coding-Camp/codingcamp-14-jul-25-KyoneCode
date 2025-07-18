@@ -4,25 +4,233 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PortoHub 2.0</title>
-    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script> <!-- tailwind -->
-
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <script src="./js/Script.js"></script>
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+        .animated-gradient {
+            background: linear-gradient(-45deg, #7f1d1d, #dc2626, #991b1b, #dc2626);
+            background-size: 400% 400%;
+            animation: gradient 15s ease infinite;
+        }
+        
+        @keyframes gradient {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        .bounce-button {
+        animation: bounce 2s infinite;
+        }
+        
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateY(0);
+            }
+            40% {
+                transform: translateY(-10px);
+            }
+            60% {
+                transform: translateY(-5px);
+            }
+        }
+        .spacer{
+            aspect-ratio: 900/200;
+            width : 100%;
+            background-repeat:no-repeat;
+            background-position: center;
+            background-size: cover;
+        }
+        .background1{
+            background-image: url('./layered-waves-haikei-1.svg');
+        }
+        .background2{
+            background-image: url('./layered-waves-haikei-2.svg');
+        }
+    </style>
 </head>
 <body>
-    <header class="flex justify-between items-center p-4 bg-[#0f0000] text-white">
-        <nav class="w-full">
+    <header class="sticky top-0 z-10 flex justify-between items-center p-4 bg-[#0f0000]/85 backdrop-blur-lg text-white">
+        <nav class="w-full ">
             <ul class="flex items-center space-x-6">
                 <li class="mr-auto"><img class="h-10 w-auto" src="foto.png" alt="PortoHub"></li>
                 <li><a href="#Home" class="hover:text-gray-300 hover:bg-red-900 px-4 py-3 rounded-[10px] transition-all duration-300 ease-in-out">Home</a></li>
-                <li><a href="#Profile" class="hover:text-gray-300 hover:bg-red-900 px-4 py-3 rounded-[10px] transition-all duration-300 ease-in-out">Profile</a></li>
+                <li><a href="#About" class="hover:text-gray-300 hover:bg-red-900 px-4 py-3 rounded-[10px] transition-all duration-300 ease-in-out">About</a></li>
                 <li><a href="#Contact" class="hover:text-gray-300 hover:bg-red-900 px-4 py-3 rounded-[10px] transition-all duration-300 ease-in-out">Contact</a></li>
             </ul>
         </nav>
     </header>
 
     <main>
-        <section id="Home"></section>
-        <section id="Profile"></section>
-        <section id="Contact"></section>
+        <!-- Home -->
+        <section id="Home">
+            <div class="flex flex-row items-center justify-center h-[calc(100vh-21rem)] animated-gradient text-white">
+                <!-- foto -->
+                <div class="flex-shrink-0 pl-1 md:pl-2 lg:pl-4 ">
+                    <img class="w-50 h-auto md:w-64 md:h-auto lg:w-80 lg:h-auto rounded-[10px] mx-auto" src="fotoku.jpg" alt="My Picture*">
+                </div>
+                <!-- teks -->
+                <div class="text-left pl-2 md:pl-4 lg:pl-6 pr-1">
+                    <h2 class="text-xl md:text-3xl lg:text-4xl font-bold mb-4">Hi <span class="text-red-300">Guest</span>, Welcome to PortoHub 2.0</h2>
+                    <p class="text-l md:text-xl lg:text-2xl mb-4">Click <span class="font-bold">Get Started</span> to learn more about Hadyan Kholish Prasetio.</p>
+                    <a href="#About" class="bg-red-900 text-white px-4 py-2 rounded-[10px] transition-all duration-300 ease-in-out hover:bg-red-300 bounce-button inline-block">Get Started</a>
+                    <button onclick="resetUserName()" class="bg-red-900/50 hover:bg-red-300/50 text-white px-4 py-2 rounded-[10px] transition-all duration-300 ease-in-out text-sm">
+                            Change Name
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Hiasan Spacer -->
+        <div class="spacer background1"></div>
+
+        <!-- Profile -->
+        <section id="About">
+            <div class="flex flex-col items-center min-h-screen bg-[#0f0000] text-white">
+                <h2 class="text-xl md:text-3xl lg:text-4xl font-bold mb-4">About Me.</h2>
+                
+                <div class="max-w-4xl grid md:grid-cols-2 gap-8 items-center px-1">
+                    <!-- Info Personal -->
+                    <div class="space-y-6">
+                        <h3 class="text-xl md:text-2xl font-semibold text-red-400">Who Am I?</h3>
+                        <p class="text-lg leading-relaxed">
+                            Hi! I'm <span class="font-bold text-red-300">Hadyan Kholish Prasetio</span>, 
+                            a passionate developer and tech enthusiast. I'm currently interested in web development, UI/UX design, and game development.
+                        </p>
+                        
+                        <h3 class="text-xl md:text-2xl font-semibold text-red-400">Skills</h3>
+                        <div class="grid grid-cols-2 gap-4">
+                            <div class="bg-red-900/30 p-3 rounded-lg">
+                                <span class="font-semibold">Frontend:</span>
+                                <p class="text-sm">HTML, CSS, JavaScript</p>
+                            </div>
+                            <div class="bg-red-900/30 p-3 rounded-lg">
+                                <span class="font-semibold">Backend:</span>
+                                <p class="text-sm">-</p>
+                            </div>
+                            <div class="bg-red-900/30 p-3 rounded-lg">
+                                <span class="font-semibold">Tools:</span>
+                                <p class="text-sm">Git, VS Code, Figma</p>
+                            </div>
+                            <div class="bg-red-900/30 p-3 rounded-lg">
+                                <span class="font-semibold">Database:</span>
+                                <p class="text-sm">MySQL, MongoDB, Oracle</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Education/Interest -->
+                    <div class="space-y-6">
+                        <h3 class="text-xl md:text-2xl font-semibold text-red-400">Education</h3>
+                        <div class="bg-red-900/20 p-4 rounded-lg">
+                            <h4 class="font-semibold">Computer Science</h4>
+                            <p class="text-red-300">University Of Diponegoro</p>
+                            <p class="text-sm text-gray-300">2023 - Present</p>
+                        </div>
+                        
+                        <h3 class="text-xl md:text-2xl font-semibold text-red-400">Interests</h3>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="bg-red-700 px-3 py-1 rounded-full text-sm">Web Development</span>
+                            <span class="bg-red-700 px-3 py-1 rounded-full text-sm">UI/UX Design</span>
+                            <span class="bg-red-700 px-3 py-1 rounded-full text-sm">Software Development</span>
+                            <span class="bg-red-700 px-3 py-1 rounded-full text-sm">Game Development</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Experience & Projects Grid -->
+                <div class="max-w-4xl grid md:grid-cols-2 gap-8 items-start px-1 mt-12">
+                    <!-- Experience -->
+                    <div class="space-y-6">
+                        <h3 class="text-xl md:text-2xl font-semibold text-red-400">Experience</h3>
+                        <div class="space-y-4">
+                            <div class="bg-red-900/20 p-4 rounded-lg">
+                                <h4 class="font-semibold">Freelance Web Developer</h4>
+                                <p class="text-red-300">Self-employed</p>
+                                <p class="text-sm text-gray-300">2023 - Present</p>
+                                <p class="text-sm mt-2">Creating custom websites for personal portfolios.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Projects -->
+                    <div class="space-y-6">
+                        <h3 class="text-xl md:text-2xl font-semibold text-red-400">Projects</h3>
+                        <div class="space-y-4">
+                            <div class="bg-red-900/20 p-4 rounded-lg">
+                                <h4 class="font-semibold">Portfolio Website</h4>
+                                <p class="text-sm text-gray-300 mb-2">Personal portfolio showcasing my projects and skills.</p>
+                                <div class="flex flex-wrap gap-1">
+                                    <span class="bg-red-700 px-2 py-0.5 rounded text-xs">HTML</span>
+                                    <span class="bg-red-700 px-2 py-0.5 rounded text-xs">CSS</span>
+                                    <span class="bg-red-700 px-2 py-0.5 rounded text-xs">JavaScript</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div> 
+
+        <!-- Hiasan Spacer -->
+        <div class="spacer background2"></div>
+
+        </section>
+        <!-- Contact -->
+        <section id="Contact">
+            <div class="flex flex-col items-center min-h-screen bg-[#0f0000] text-white py-16 px-4">
+                <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold mb-8 text-center">Contact Me</h2>
+                <p class="text-lg md:text-xl text-gray-300 mb-12 text-center max-w-2xl">
+                    Have a project in mind or just want to say hello? Feel free to reach out!
+                </p>
+                
+                <div class="w-full max-w-2xl">
+                    <form id="contactForm" class="space-y-6">
+                        <!-- Nama -->
+                        <div>
+                            <label for="contactName" class="block text-sm font-medium text-red-400 mb-2">
+                                Name *
+                            </label>
+                            <input type="text" id="contactName" name="name" required
+                                   class="w-full p-3 rounded-lg bg-red-900/30 border border-red-700 text-white placeholder-gray-300 focus:outline-none focus:border-red-500 focus:ring-1 focus:ring-red-500 transition-colors">
+                        </div>
+                        
+                        <!-- Email -->
+                        <div>
+                            <label for="contactEmail" class="block text-sm font-medium text-red-400 mb-2">
+                                Email *
+                            </label>
+                            <input type="email" id="contactEmail" name="email" required
+                                   class="w-full p-3 rounded-lg bg-red-900/30 border border-red-700 text-white placeholder-gray-300 focus:outline-none focus:border-red-500 focus:ring-1 focus:ring-red-500 transition-colors">
+                        </div>
+                        
+                        <!-- Deskripsi -->
+                        <div>
+                            <label for="contactMessage" class="block text-sm font-medium text-red-400 mb-2">
+                                Message *
+                            </label>
+                            <textarea id="contactMessage" name="message" rows="5" required
+                                      class="w-full p-3 rounded-lg bg-red-900/30 border border-red-700 text-white placeholder-gray-300 focus:outline-none focus:border-red-500 focus:ring-1 focus:ring-red-500 transition-colors resize-none"
+                                      placeholder="Tell me about your project or just say hello..."></textarea>
+                        </div>
+                        
+                        <!-- Submit Button -->
+                        <div class="pt-4">
+                            <button type="button" onclick="handleContactSubmit()"
+                                    class="w-full bg-red-700 hover:bg-red-600 text-white font-semibold py-3 px-6 rounded-lg transition-colors duration-300 ease-in-out transform hover:scale-105">
+                                Send Message
+                            </button>
+                        </div>
+                    </form>
+                    
+                    <!-- Success Message (hidden by default) -->
+                    <div id="successMessage" class="hidden mt-6 p-4 bg-green-900/30 border border-green-700 rounded-lg">
+                        <p class="text-green-400 text-center">✓ Message sent successfully! I'll get back to you soon.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
     </main>
 </body>
 </html>
